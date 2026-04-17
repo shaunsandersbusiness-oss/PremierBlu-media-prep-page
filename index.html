@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listing Preparation Checklist | PremierBlu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary-blue: #1E3A8A;
+      --headline-navy: #0F172A;
+      --body-slate: #475569;
+      --bg-light: #F3F4F8;
+      --bg-white: #FFFFFF;
+      --border: rgba(30, 58, 138, 0.15);
+      --success: #059669;
+      --warning: #D97706;
+      --danger: #DC2626;
+      --font-sans: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      /* Mapped legacy vars to prevent breaks in JS inline styles or existing hooks */
+      --blue: var(--primary-blue);
+      --navy: var(--headline-navy);
+      --slate: var(--body-slate);
+      --light: var(--bg-light);
+      --white: var(--bg-white);
+      --green: var(--success);
+      --amber: var(--warning);
+      --red: var(--danger);
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-sans);
+    }
+    
+    body {
+      background: var(--bg-white);
+      color: var(--body-slate);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    
+    /* Layout Containers */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .hero-container {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--border);
+      height: 64px;
+      display: flex;
+      align-items: center;
+      z-index: 100;
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .logo-box {
+      width: 40px;
+      height: 40px;
+      background: var(--primary-blue);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      border-radius: 8px;
+      font-size: 18px;
+    }
+    .logo-text {
+      color: var(--headline-navy);
+      font-weight: 700;
+      font-size: 20px;
+    }
+    .header-progress {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--body-slate);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 32px 0;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .eyebrow {
+      color: var(--primary-blue);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+    .hero h1 {
+      color: var(--headline-navy);
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .hero p {
+      font-size: 15px;
+      color: var(--body-slate);
+      margin-bottom: 20px;
+    }
+    .progress-bar-wrapper {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .progress-track {
+      width: 100%;
+      height: 4px;
+      background: #E5E7EB;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--primary-blue);
+      width: 0%;
+      transition: width 0.4s ease;
+    }
+    .reset-link {
+      font-size: 11px;
+      color: var(--body-slate);
+      text-decoration: underline;
+      cursor: pointer;
+      border: none;
+      background: none;
+      margin-top: 8px;
+      display: inline-block;
+    }
+    .reset-link:hover {
+      color: var(--headline-navy);
+    }
+
+    /* Alerts */
+    .alerts {
+      background: var(--bg-light);
+      padding: 24px 0;
+      flex-shrink: 0;
+    }
+    .alerts .container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .alert-card {
+      background: white;
+      padding: 16px;
+      border-radius: 8px;
+      display: flex;
+      gap: 12px;
+      border: 1px solid var(--border);
+    }
+    .alert-card.warning {
+      border-left: 4px solid var(--warning);
+    }
+    .alert-card.danger {
+      border-left: 4px solid var(--danger);
+    }
+    .alert-icon {
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-top: -2px;
+    }
+    .alert-content h3 {
+      color: var(--headline-navy);
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .alert-content p {
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    /* Checklist Section */
+    .checklist-section {
+      padding: 32px 0;
+      flex-grow: 1;
+    }
+    #checklist-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    .category-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      height: fit-content;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .category-card.pulse-green {
+      border-color: var(--success);
+      box-shadow: 0 0 0 1px var(--success);
+    }
+    
+    /* Support for card-level success borders without modifying JS */
+    .category-card:has(.category-header.completed) {
+      border-left: 3px solid var(--success);
+    }
+
+    .category-header {
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--border);
+      user-select: none;
+      /* Fallback for browsers without :has */
+      border-left: 3px solid transparent;
+      margin-left: -1px;
+    }
+    @supports selector(:has(a)) {
+      .category-header {
+        border-left: none;
+        margin-left: 0;
+      }
+    }
+    .category-header.completed {
+      border-left-color: var(--success);
+    }
+    .category-header:hover {
+      background: #F8FAFC;
+    }
+    .cat-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .cat-icon {
+      font-size: 14px;
+    }
+    .cat-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--headline-navy);
+    }
+    .cat-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .cat-progress-text {
+      font-size: 11px;
+      color: var(--body-slate);
+      background: var(--bg-light);
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+    .cat-progress-badge {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+    }
+    .cat-progress-badge svg {
+      color: var(--success);
+      width: 12px;
+      height: 12px;
+    }
+    .chevron {
+      transition: transform 0.3s ease;
+      color: var(--body-slate);
+      width: 16px;
+      height: 16px;
+    }
+    .category-card.open .chevron {
+      transform: rotate(180deg);
+    }
+    
+    .category-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: var(--bg-white);
+    }
+    .category-card.open .category-body {
+      max-height: 1000px;
+    }
+    
+    .items-list {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      cursor: pointer;
+      min-height: auto; 
+    }
+    .check-item input {
+      display: none;
+    }
+    .custom-box {
+      width: 18px;
+      height: 18px;
+      border: 2px solid var(--primary-blue);
+      border-radius: 4px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-white);
+      transition: all 0.2s;
+      margin-top: 2px;
+    }
+    .check-item input:checked + .custom-box {
+      background: var(--primary-blue);
+      border-color: var(--primary-blue);
+    }
+    .check-item input:checked + .custom-box::after {
+      content: '\2713';
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    .item-text {
+      font-size: 12px;
+      line-height: 1.4;
+      color: var(--headline-navy);
+      transition: all 0.2s;
+      padding-top: 1px;
+    }
+    .check-item input:checked ~ .item-text {
+      text-decoration: line-through;
+      opacity: 0.5;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary-blue);
+      color: white;
+      padding: 20px 40px;
+      text-align: center;
+      flex-shrink: 0;
+      margin-top: auto;
+    }
+    footer h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    footer p {
+      font-size: 13px;
+      margin-bottom: 12px;
+      opacity: 0.9;
+    }
+    footer a {
+      color: white;
+      text-decoration: underline;
+    }
+    footer a:hover {
+      text-decoration: none;
+    }
+    .divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.2);
+      max-width: 600px;
+      margin: 0 auto 10px auto;
+    }
+    .copyright {
+      font-size: 11px;
+      opacity: 0.6;
+    }
+
+    /* Responsive */
+    @media (max-width: 767px) {
+      .container, .header-inner, .hero-container {
+        padding: 0 20px;
+      }
+      .hero { padding: 32px 0; }
+      .alerts { padding: 24px 0; }
+      .checklist-section { padding: 32px 0; }
+      .category-header { min-height: 44px; padding: 16px; }
+      .check-item { min-height: 32px; }
+    }
+
+    /* Print Styles */
+    @media print {
+      header, .progress-bar-wrapper, .reset-link { display: none !important; }
+      #checklist-container { display: block; }
+      .category-card { break-inside: avoid; border: 1px solid #ccc; margin-bottom: 16px; }
+      .category-body { max-height: none !important; overflow: visible !important; }
+      .chevron { display: none !important; }
+      body { color: #000; background: #fff; display: block; }
+      .hero { padding: 20px 0; }
+      .alerts, .checklist-section { padding: 20px 0; }
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .hero h1 { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-inner">
+      <a href="https://premierblu.com" class="logo">
+        <img src="apple-touch-icon (1).png" alt="PB Logo" class="logo-box" style="background: transparent; color: transparent; object-fit: cover;">
+        <div class="logo-text">PremierBlu</div>
+      </a>
+      <div class="header-progress" id="header-progress-text">0 of 0 complete</div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-container">
+        <span class="eyebrow">BEFORE YOUR SHOOT</span>
+        <h1>Listing Preparation Checklist</h1>
+        <p>Prepare your listing before the photographer arrives to ensure the best photos and a strong first impression. A well-prepped home enhances image quality and attracts more buyers.</p>
+        
+        <div class="progress-bar-wrapper">
+          <div class="progress-track">
+            <div class="progress-fill" id="global-progress-fill"></div>
+          </div>
+          <button class="reset-link" onclick="resetAll()">Reset all</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Alerts Section -->
+    <section class="alerts">
+      <div class="container">
+        <div class="alert-card warning">
+          <div class="alert-icon">⚠️</div>
+          <div class="alert-content">
+            <h3>A guide to get the best possible shoot</h3>
+            <p>This checklist is a guide — not every item needs to be perfect. The more complete it is, the better your photos will turn out. Items left undone may require corrections like object removal, retouching, or reshoots, which can incur additional costs. Do your best to prep, and we'll handle the rest.</p>
+          </div>
+        </div>
+        <div class="alert-card danger">
+          <div class="alert-icon">🚫</div>
+          <div class="alert-content">
+            <h3>Do not complete checklist items during the shoot</h3>
+            <p>Our photographers are not stagers — their job is to capture the property, not prepare it. Moving items, tidying rooms, or working through this checklist during the shoot disrupts the workflow and delays the schedule. A $75 fee may apply if on-site preparation during the shoot affects the scheduled timeline. Have everything ready before we walk through the door.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Checklist Section -->
+    <section class="checklist-section">
+      <div class="container" id="checklist-container">
+        <!-- Rendered by JavaScript -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container" style="max-width: 600px;">
+      <h4>Ready for your shoot?</h4>
+      <p><a href="https://premierblu.com">Return to PremierBlu.com</a></p>
+      <div class="divider"></div>
+      <div class="copyright">&copy; 2026 PremierBlu Real Estate Group</div>
+    </div>
+  </footer>
+
+  <script>
+    // --- Data Definition ---
+    const categories = [
+      {
+        icon: "💡",
+        title: "Lighting & Windows",
+        items: [
+          "Open all blinds and curtains to let in maximum natural light",
+          "Turn on ALL interior lights — ceiling fixtures, lamps, under-cabinet lighting, closet lights",
+          "Check that all light bulbs are working and match in color temperature (no mix of warm yellow and cool white)",
+          "Turn on exterior lights if the shoot includes twilight or exterior photos"
+        ]
+      },
+      {
+        icon: "🚿",
+        title: "Bathrooms",
+        items: [
+          "Close all toilet seats and lids",
+          "Arrange shower curtains the way you want them photographed — open, closed, removed, or replaced",
+          "Remove ALL personal items — toothbrushes, razors, soaps, shampoo bottles, medications",
+          "Clear countertops completely — store items under the sink or in a bin",
+          "Wipe mirrors, faucets, and glass surfaces to remove water spots and streaks"
+        ]
+      },
+      {
+        icon: "🛏️",
+        title: "Bedrooms",
+        items: [
+          "Make all beds with neat, smooth bedding — tuck in sheets, fluff pillows, fold throws",
+          "Declutter nightstands — remove water bottles, chargers, books, medications",
+          "Clear dresser tops and remove any laundry, hampers, or clothes from view",
+          "Open curtains and make sure windows are clean"
+        ]
+      },
+      {
+        icon: "🛋️",
+        title: "Living Areas",
+        items: [
+          "Fluff pillows and straighten furniture — arrange cushions symmetrically",
+          "Declutter coffee tables, shelves, and mantels — less is more",
+          "Hide all visible cords, remotes, and charging cables",
+          "Remove any kids' toys, pet items, and shoes from the floor"
+        ]
+      },
+      {
+        icon: "🍽️",
+        title: "Kitchen",
+        items: [
+          "Clear countertops of all items except 1-2 decorative pieces (a plant, a cookbook stand)",
+          "Close ALL cabinet doors and drawers — check every single one",
+          "Remove dish racks, sponges, dish soap, and paper towel holders",
+          "Hide small appliances — toaster, coffee maker, knife block (unless they're high-end and part of the staging)",
+          "Wipe down all surfaces, appliances, and the sink until they shine"
+        ]
+      },
+      {
+        icon: "🏡",
+        title: "Exterior & Curb Appeal",
+        items: [
+          "Move all vehicles out of the driveway and away from the front of the house",
+          "Remove trash cans, recycling bins, and garden hoses from view",
+          "Mow the lawn, sweep walkways, and clear any debris or leaves",
+          "Put away kids' outdoor toys, bikes, and pet items",
+          "Close the garage door"
+        ]
+      },
+      {
+        icon: "🐾",
+        title: "Pets & Personal Items",
+        items: [
+          "Remove pet beds, food bowls, litter boxes, and toys from all rooms",
+          "Secure pets in a crate, vehicle, or off-property during the shoot",
+          "Remove personal photos, religious items, and family memorabilia from walls and shelves"
+        ]
+      },
+      {
+        icon: "✅",
+        title: "Final Walkthrough",
+        items: [
+          "Walk through EVERY room and check it as if you were hosting an open house right now",
+          "Check all closets — buyers and photographers may open them (neat and half-full is ideal)",
+          "Make sure all ceiling fans are OFF (they blur in photos)",
+          "Notify the photographer of any special features or angles you'd like highlighted"
+        ]
+      }
+    ];
+
+    // --- Core Logic ---
+    const STORAGE_KEY = 'premierblu-checklist-v1';
+    let savedState = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+    let totalItemsCount = 0;
+
+    // 1. Render HTML Dynamically
+    const container = document.getElementById('checklist-container');
+    
+    categories.forEach((cat, cIdx) => {
+      totalItemsCount += cat.items.length;
+      const card = document.createElement('div');
+      card.className = `category-card open`;
+      card.id = `cat-card-${cIdx}`;
+
+      let itemsHtml = '';
+      cat.items.forEach((item, iIdx) => {
+        const id = `item-${cIdx}-${iIdx}`;
+        const isChecked = savedState[id] ? 'checked' : '';
+        itemsHtml += `
+          <label class="check-item">
+            <input type="checkbox" id="${id}" data-cat="${cIdx}" ${isChecked}>
+            <div class="custom-box"></div>
+            <span class="item-text">${item}</span>
+          </label>
+        `;
+      });
+
+      card.innerHTML = `
+        <div class="category-header" onclick="toggleCard(${cIdx})">
+          <div class="cat-title-wrap">
+            <span class="cat-icon">${cat.icon}</span>
+            <h2 class="cat-title">${cat.title}</h2>
+          </div>
+          <div class="cat-status">
+            <span id="cat-progress-${cIdx}" class="cat-progress-text"></span>
+            <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </div>
+        </div>
+        <div class="category-body">
+          <div class="items-list">
+            ${itemsHtml}
+          </div>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+
+    // 2. Interaction Methods
+    function toggleCard(cIdx) {
+      const card = document.getElementById(`cat-card-${cIdx}`);
+      card.classList.toggle('open');
+    }
+
+    function updateProgress() {
+      const allInputs = document.querySelectorAll('input[type="checkbox"]');
+      let totalChecked = 0;
+      const catCounts = {};
+
+      // Calculate totals
+      allInputs.forEach(input => {
+        savedState[input.id] = input.checked;
+        if (input.checked) {
+          totalChecked++;
+          const cIdx = input.dataset.cat;
+          catCounts[cIdx] = (catCounts[cIdx] || 0) + 1;
+        }
+      });
+
+      // Save to localStorage
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(savedState));
+
+      // Update Global Counters & Progress Bar
+      const progressText = `${totalChecked} of ${totalItemsCount} complete`;
+      document.getElementById('header-progress-text').innerText = progressText;
+      document.getElementById('global-progress-fill').style.width = `${(totalChecked / totalItemsCount) * 100}%`;
+
+      // Update Per-Category Status
+      categories.forEach((cat, cIdx) => {
+        const cChecked = catCounts[cIdx] || 0;
+        const cTotal = cat.items.length;
+        const card = document.getElementById(`cat-card-${cIdx}`);
+        const header = card.querySelector('.category-header');
+        const progressEl = document.getElementById(`cat-progress-${cIdx}`);
+
+        if (cChecked === cTotal && cTotal > 0) {
+          progressEl.innerHTML = `<div class="cat-progress-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span style="color: #059669; font-weight:600;">Complete</span></div>`;
+          header.classList.add('completed');
+          
+          // Flash animation (only trigger once when initially completed)
+          if (!card.dataset.wasComplete) {
+            card.dataset.wasComplete = "true";
+            card.classList.add('pulse-green');
+            setTimeout(() => card.classList.remove('pulse-green'), 1000);
+          }
+        } else {
+          progressEl.innerText = `${cChecked} of ${cTotal} complete`;
+          header.classList.remove('completed');
+          card.dataset.wasComplete = "";
+        }
+      });
+    }
+
+    function resetAll() {
+      if (confirm("Reset all progress?")) {
+        savedState = {};
+        localStorage.removeItem(STORAGE_KEY);
+        document.querySelectorAll('input[type="checkbox"]').forEach(input => input.checked = false);
+        updateProgress();
+      }
+    }
+
+    // 3. Attach Listeners
+    document.querySelectorAll('input[type="checkbox"]').forEach(input => {
+      input.addEventListener('change', updateProgress);
+    });
+
+    // Run initial update
+    updateProgress();
+
+    // 4. Print handling (expand all on print)
+    window.addEventListener('beforeprint', () => {
+       document.querySelectorAll('.category-card').forEach(card => card.classList.add('open'));
+    });
+  </script>
+</body>
+</html>
